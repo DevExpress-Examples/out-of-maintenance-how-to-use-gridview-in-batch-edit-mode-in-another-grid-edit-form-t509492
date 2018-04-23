@@ -1,0 +1,70 @@
+﻿
+
+@model System.Collections.IEnumerable
+
+@Html.DevExpress().GridView(settings => {
+    settings.Name = "GridViewOrders";
+    settings.KeyFieldName = "Id";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewOrders" };
+    settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Home", Action = "InsertOrder" };
+    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Home", Action = "UpdateOrder" };
+    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Home", Action = "RemoveOrder" };
+
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.ShowEditButton = true;
+    settings.CommandColumn.ShowNewButton = true;
+    settings.CommandColumn.ShowDeleteButton = true;
+    settings.CommandColumn.Width = Unit.Percentage(20);
+
+    settings.Columns.Add(column => {
+        column.FieldName = "Id";
+        column.ReadOnly = true;
+    });
+
+    settings.Columns.Add("Name");
+
+    settings.SetEditFormTemplateContent(c => {
+        Html.DevExpress().FormLayout(form => {
+            form.Name = "EditForm";
+            form.ColCount = 2;
+            form.Width = Unit.Percentage(100);
+            form.Items.Add(i => {
+                i.Caption = "Name";
+                i.NestedExtension().TextBox(name => {
+                    name.Name = "Name";
+                    name.Text = DataBinder.Eval(c.DataItem, "Name") as string;
+                });
+            });
+            form.Items.Add(i => {
+                i.ColSpan = 2;
+                i.ShowCaption = DefaultBoolean.False;
+                i.SetNestedContent(() => {
+                    Html.RenderAction("GridViewOrderItems", new { orderId = c.Grid.IsNewRowEditing ? -1 : c.KeyValue });
+                });
+            });
+            form.Items.AddEmptyItem();
+            form.Items.Add(i => {
+                i.ColSpan = 1;
+                i.ShowCaption = DefaultBoolean.False;
+                i.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+                i.SetNestedContent(() => {
+                    Html.DevExpress().Button(button => {
+                        button.Name = "Update";
+                        button.Text = "Update";
+                        button.RenderMode = ButtonRenderMode.Link;
+                        button.ClientSideEvents.Click = "buttonHandlers.update";
+                        button.Styles.Style.Paddings.PaddingRight = 10;
+                    }).Render();
+                    Html.DevExpress().Button(button => {
+                        button.Name = "Cancel";
+                        button.Text = "Cancel";
+                        button.RenderMode = ButtonRenderMode.Link;
+                        button.ClientSideEvents.Click = "buttonHandlers.cancel";
+                    }).Render();
+                });
+            });
+        }).Render();
+    });
+    settings.Width = Unit.Percentage(40);
+
+}).SetEditErrorText((string)ViewData["EditError"]).Bind(Model).GetHtml()
