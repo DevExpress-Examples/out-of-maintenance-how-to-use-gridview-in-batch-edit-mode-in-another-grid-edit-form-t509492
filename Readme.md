@@ -1,3 +1,13 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/T508133/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/T508133/Controllers/HomeController.vb))
+* [DataContext.cs](./CS/T508133/Models/DataContext.cs) (VB: [DataContext.vb](./VB/T508133/Models/DataContext.vb))
+* [GridViewOrderItems.cshtml](./CS/T508133/Views/Home/GridViewOrderItems.cshtml)
+* [GridViewOrders.cshtml](./CS/T508133/Views/Home/GridViewOrders.cshtml)
+* [Index.cshtml](./CS/T508133/Views/Home/Index.cshtml)
+* [_Layout.cshtml](./CS/T508133/Views/Shared/_Layout.cshtml)
+<!-- default file list end -->
 # How to use GridView in Batch Edit mode in another grid Edit Form
 
 
