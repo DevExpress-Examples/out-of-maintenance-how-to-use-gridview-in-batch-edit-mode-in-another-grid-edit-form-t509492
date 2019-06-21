@@ -9,6 +9,9 @@
 * [_Layout.cshtml](./CS/T508133/Views/Shared/_Layout.cshtml)
 <!-- default file list end -->
 # How to use GridView in Batch Edit mode in another grid Edit Form
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/t509492)**
+<!-- run online end -->
 
 
 <p>This example demonstrates how to edit a detail grid with Batch Edit mode enabled in the master grid edit form. The main point is that it is impossible to update both grids simultaneously. So, we need to send two consequent callbacks to update the detail and master grids:</p>
