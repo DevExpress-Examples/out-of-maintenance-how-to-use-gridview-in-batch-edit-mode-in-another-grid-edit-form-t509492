@@ -10,7 +10,7 @@
 <!-- default file list end -->
 # How to use GridView in Batch Edit mode in another grid Edit Form
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t509492)**
+**[[Run Online]](https://codecentral.devexpress.com/t509492/)**
 <!-- run online end -->
 
 
