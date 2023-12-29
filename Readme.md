@@ -1,8 +1,3 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/128551932/16.2.6%2B)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T509492)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-<!-- default badges end -->
 <!-- default file list -->
 *Files to look at*:
 
@@ -14,9 +9,6 @@
 * [_Layout.cshtml](./CS/T508133/Views/Shared/_Layout.cshtml)
 <!-- default file list end -->
 # How to use GridView in Batch Edit mode in another grid Edit Form
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t509492/)**
-<!-- run online end -->
 
 
 <p>This example demonstrates how to edit a detail grid with Batch Edit mode enabled in the master grid edit form. The main point is that it is impossible to update both grids simultaneously. So, we need to send two consequent callbacks to update the detail and master grids:</p>
